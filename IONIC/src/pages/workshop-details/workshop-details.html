@@ -1,0 +1,172 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="2" text-left (click)="goBack()"><i class="fas fa-chevron-left"></i></ion-col>
+            <ion-col size="8" text-center class="header-label">
+                {{"garage" | translate}}
+            </ion-col>
+            <ion-col size="2" text-right></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12><img class="big-img" src="{{global.imagePath+karajInfo.logo}}" /></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-10>
+                <label class="big-text" *ngIf="global.lang=='ar'">{{karajInfo.ar_name}}</label>
+                <label class="big-text" *ngIf="global.lang=='en'">{{karajInfo.en_name}}</label>
+            </ion-col>
+            <ion-col col-1 (click)="openLocation()"><i class="fas fa-map-marker-alt" [ngClass]="{'active': openDetails, 'deactive': !openDetails}"></i></ion-col>
+            <ion-col col-1 (click)="openContent()"><i class="fas fa-phone" [ngClass]="{'active': openDetails, 'deactive': !openDetails}"></i></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-8><b>{{'working_hour' | translate}}</b></ion-col>
+            <ion-col col-4 [ngClass]="{'otherAlign-left': global.lang=='ar', 'otherAlign-right': global.lang=='en'}">
+                <label>{{karajInfo.start_from}}-{{karajInfo.end_at}}</label></ion-col>
+        </ion-row>
+        <div class="clear"></div>
+        <ion-row>
+            <ion-col col-12 text-center><label class="big-text">{{'reviews' | translate}}</label></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 text-center>
+                <div *ngIf="viewRate=='Yes'">
+                    <div *ngIf="karajInfo.totl_rate==5">
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                    </div>
+                    <div *ngIf="karajInfo.totl_rate<5 && karajInfo.totl_rate>=4">
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div *ngIf="karajInfo.totl_rate<4 && karajInfo.totl_rate>=3">
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div *ngIf="karajInfo.totl_rate<3 && karajInfo.totl_rate>=2">
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div *ngIf="karajInfo.totl_rate<2">
+                        <i class="far fa-star yallow"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 text-center><b>{{karajInfo.totl_rate}}</b> {{'view_feedback' | translate}}</ion-col>
+        </ion-row>
+        <div class="clear"></div>
+        <ion-row>
+            <ion-col col-12 text-center>
+                <img *ngIf="karajInfo.image!=null" class="small-img" src="{{global.imagePath+karajInfo.image}}" />
+                <img *ngIf="karajInfo.image==null" class="small-img" src="../../assets/imgs/user.png" />
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 text-center *ngIf="global.lang=='en'">{{karajInfo.en_description}}</ion-col>
+            <ion-col col-12 text-center *ngIf="global.lang=='ar'">{{karajInfo.ar_description}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-8 text-center>
+                <input type="button" class="btn-main" value="{{'book' | translate}}" (click)="getCarsList()" />
+            </ion-col>
+            <ion-col col-2></ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
+
+<div class="full-bg" *ngIf="fullBG">
+    <div *ngIf="car" class="faceBox list card animated fadeInUp">
+        <div [ngClass]="{'otherAlign-left': global.lang=='ar', 'otherAlign-right': global.lang=='en'}" (click)="closeFaseBox()"><i class="far fa-times-circle close"></i></div>
+        <ion-row>
+            <ion-col col-12 text-center><label class="big-text">{{'my_cars' | translate}}</label></ion-col>
+        </ion-row>
+        <div class="car-list" *ngFor="let item of carList">
+            <ion-row (click)="save(item.id)">
+                <ion-col col-2>
+                    <img *ngIf="item.image!=null" src="{{global.imagePath + item.image}}" style="height: 40px; width: 40px" />
+                    <img *ngIf="item.image==null" src="../../assets/imgs/car.png" style="height: 40px; width: 40px" />
+                </ion-col>
+                <ion-col col-10>
+                    <ion-label>{{item.vehicle_type}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+    <div *ngIf="location" class="faceBox list card animated fadeInUp">
+        <div [ngClass]="{'otherAlign-left': global.lang=='ar', 'otherAlign-right': global.lang=='en'}" (click)="closeFaseBox()"><i class="far fa-times-circle close"></i></div>
+        <div #mapservice id="mapservice"></div>
+        <div #directionsPanel></div>
+    </div>
+    <div *ngIf="contact" id="contactUs" class="faceBox list card animated fadeInUp">
+        <div [ngClass]="{'otherAlign-left': global.lang=='ar', 'otherAlign-right': global.lang=='en'}" (click)="closeFaseBox()"><i class="far fa-times-circle close"></i></div>
+        <ion-grid>
+            <div class="clear-mid"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-mobile-alt"></i> {{'mobile' | translate}}</ion-col>
+                <ion-col col-6>
+                    <a href="tel://{{karajInfo.mobile}}">{{karajInfo.mobile}}</a>
+                </ion-col>
+            </ion-row>
+            <div class="clear"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-tty"></i> {{'telephone' | translate}}</ion-col>
+                <ion-col col-6><a href="tel://{{karajInfo.telephone}}">{{karajInfo.telephone}}</a></ion-col>
+            </ion-row>
+            <div class="clear"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-globe"></i> {{'website' | translate}}</ion-col>
+                <ion-col col-6><a href="http://{{karajInfo.website}}">{{karajInfo.website}}</a></ion-col>
+            </ion-row>
+            <div class="clear"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-location-arrow"></i> {{'address' | translate}}</ion-col>
+                <ion-col col-6>
+                    <label *ngIf="global.lang=='en'">{{karajInfo.en_address}}</label>
+                    <label *ngIf="global.lang=='ar'">{{karajInfo.ar_address}}</label>
+                </ion-col>
+            </ion-row>
+            <div class="clear"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-building"></i> {{'city' | translate}}</ion-col>
+                <ion-col col-6>
+                    <label *ngIf="global.lang=='en'">{{karajInfo.en_city_name}}</label>
+                    <label *ngIf="global.lang=='ar'">{{karajInfo.ar_city_name}}</label>
+                </ion-col>
+            </ion-row>
+            <div class="clear"></div>
+            <ion-row>
+                <ion-col col-6><i class="fas fa-city"></i> {{'country' | translate}}</ion-col>
+                <ion-col col-6>
+                    <label *ngIf="global.lang=='en'">{{karajInfo.en_country_name}}</label>
+                    <label *ngIf="global.lang=='ar'">{{karajInfo.ar_country_name}}</label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="clear-mid"></div>
+    </div>
+</div>

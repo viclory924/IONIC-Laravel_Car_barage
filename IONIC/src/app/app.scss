@@ -1,0 +1,158 @@
+ion-content {
+    background-image: url(../assets/imgs/bg.png) !important;
+    background-size: 100% auto;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    padding-top: 45px;
+    background: url(../../assets/imgs/header.png);
+    background-size: 100% auto;
+    ion-col {
+        color: #dc713d;
+        font-size: 22px;
+    }
+    .header-label {
+        color: #e5e5e5;
+        text-shadow: #000000 0px 4px 2px;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-style: italic;
+        font-size: 26px;
+    }
+}
+
+i {
+    font-size: 26px !important;
+}
+
+.clear {
+    width: 100%;
+    height: 20px;
+    display: block;
+}
+
+.clear-mid {
+    width: 100%;
+    height: 45px;
+    display: block;
+}
+
+.clear-big {
+    width: 100%;
+    height: 90px;
+    display: block;
+}
+
+.otherAlign-right {
+    text-align: right;
+}
+
+.otherAlign-left {
+    text-align: left;
+}
+
+i,
+label {
+    font-size: 16px;
+}
+
+input {
+    background: #f7f8fa;
+    border: solid 1px #cecece;
+    border-radius: 20px;
+    line-height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number] {
+    width: 100%;
+}
+
+input[type=submit] {
+    width: 50%;
+}
+
+.btn-main {
+    background: #dc713d;
+    color: #ffffff;
+    font-weight: bold;
+    width: 50%;
+}
+
+.error-message {
+    color: #a94442;
+    font-size: 11px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.big-text {
+    font-size: 24px;
+    color: #dc713d;
+}
+
+.box {
+    -webkit-box-shadow: -2px 15px 24px -7px rgba(168, 168, 168, 1);
+    -moz-box-shadow: -2px 15px 24px -7px rgba(168, 168, 168, 1);
+    box-shadow: -2px 15px 24px -7px rgba(168, 168, 168, 1);
+    padding: 0px 0px 0px 0px;
+    background: #ffffff;
+}
+
+.yallow {
+    color: #efce4a;
+}
+
+.white-text {
+    color: #ffffff !important;
+}
+
+.very-big-text {
+    font-size: 38px;
+    color: #dc713d;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.normal-text {
+    font-size: 14px;
+    color: #dc713d;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn-full {
+    width: 100% !important;
+}
+
+.logout {
+    color: #f53d3d;
+}
+
+.select-upload {
+    z-index: 600;
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    .select-option {
+        background: #f9f9f9;
+        text-align: center;
+        color: #3880ff;
+        font-size: 24px;
+        line-height: 60px;
+        border-radius: 10px;
+        margin: 5px 5px 5px 5px;
+        font-weight: bold;
+    }
+}

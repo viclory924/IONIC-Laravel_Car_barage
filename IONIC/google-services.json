@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "504057052323",
+    "firebase_url": "https://testproject-c4f64.firebaseio.com",
+    "project_id": "testproject-c4f64",
+    "storage_bucket": "testproject-c4f64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504057052323:android:08e51ea5c91b27f4981316",
+        "android_client_info": {
+          "package_name": "ionic.karaj.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504057052323-7shhud4sn12f0078vtbnat8d8g2auk8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtUb67L3wiy8EKSeJ-h0rFuI9ynmGt650"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504057052323-7shhud4sn12f0078vtbnat8d8g2auk8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

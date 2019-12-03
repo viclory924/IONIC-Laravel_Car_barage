@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-2 text-left (click)="goBack()"><i class="fas fa-chevron-left"></i></ion-col>
+            <ion-col col-10 class="header-label">
+                {{"car_registration" | translate}}
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+<ion-content>
+    <div class="list card animated flipInX">
+        <div class="clear-mid"></div>
+        <div class="big-text" text-center>{{'car_details' | translate}}</div>
+        <div class="clear-mid"></div>
+    </div>
+    <form padding [formGroup]="form">
+        <div class="list card animated bounceInRight">
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="text" placeholder="{{'model' | translate}}" formControlName="model" />
+                </ion-col>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.model">
+                        <div class="error-message" *ngIf="form.get('model').hasError(validation.type) && (form.get('model').dirty || form.get('model').touched)">
+                            {{ validation.message | translate}}
+                        </div>
+                    </ng-container>
+                </div>
+                <ion-col col-1></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="text" placeholder="{{'origin' | translate}}" formControlName="origin" />
+                </ion-col>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.origin">
+                        <div class="error-message" *ngIf="form.get('origin').hasError(validation.type) && (form.get('origin').dirty || form.get('origin').touched)">
+                            {{ validation.message | translate}}
+                        </div>
+                    </ng-container>
+                </div>
+                <ion-col col-1></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="text" placeholder="{{'eng_no' | translate}}" formControlName="eng_no" />
+                </ion-col>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.eng_no">
+                        <div class="error-message" *ngIf="form.get('eng_no').hasError(validation.type) && (form.get('eng_no').dirty || form.get('eng_no').touched)">
+                            {{ validation.message | translate}}
+                        </div>
+                    </ng-container>
+                </div>
+                <ion-col col-1></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="text" placeholder="{{'vehicle_type' | translate}}" formControlName="vehicle_type" />
+                </ion-col>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.vehicle_type">
+                        <div class="error-message" *ngIf="form.get('vehicle_type').hasError(validation.type) && (form.get('vehicle_type').dirty || form.get('vehicle_type').touched)">
+                            {{ validation.message | translate}}
+                        </div>
+                    </ng-container>
+                </div>
+                <ion-col col-1></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="text" placeholder="{{'chassis_no' | translate}}" formControlName="chassis_no" />
+                </ion-col>
+                <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.chassis_no">
+                        <div class="error-message" *ngIf="form.get('chassis_no').hasError(validation.type) && (form.get('chassis_no').dirty || form.get('chassis_no').touched)">
+                            {{ validation.message | translate}}
+                        </div>
+                    </ng-container>
+                </div>
+                <ion-col col-1></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-1></ion-col>
+                <ion-col col-10 text-center>
+                    <input type="button" class="btn-main" value="{{'save' | translate}}" (click)="save()" />
+                </ion-col>
+                <ion-col col-1></ion-col>
+            </ion-row>
+        </div>
+    </form>
+</ion-content>

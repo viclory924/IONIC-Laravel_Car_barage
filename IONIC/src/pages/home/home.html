@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="2" text-left (click)="openMenu()"><i class="fas fa-bars"></i></ion-col>
+            <ion-col size="8" text-center class="header-label">
+                {{"services" | translate}}
+            </ion-col>
+            <ion-col size="2" text-right><i class="fas fa-bell"></i></ion-col>
+        </ion-row>
+    </ion-grid>
+    <page-header></page-header>
+</ion-header>
+
+<ion-content>
+    <div text-center padding class="list card animated flipInX">
+        <label class="big-text">{{"select_service" | translate}}</label>
+    </div>
+    <div class="list card animated fadeInDown">
+        <div *ngFor="let item of content" padding>
+            <div class="cat-box" (click)="getSub(item.id)">
+                <div class="big-text cat-lable" *ngIf="global.lang=='ar'">{{item.ar_name}}</div>
+                <div class="big-text cat-lable" *ngIf="global.lang=='en'">{{item.en_name}}</div>
+                <div class="box-img">
+                    <img src="{{global.imagePath}}{{item.image}}" *ngIf="item.image!=null" />
+                    <img src="../../assets/imgs/user.png" *ngIf="item.image==null" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</ion-content>
+<div class="menu list card animated fadeInLeft" *ngIf="showMenu" full-screen>
+    <div class="menu-content">
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="view-img"><img src="{{userImg}}" (click)="uploadProfileImg()"></div>
+        <div class="view-text big-text white-text">{{userName}}</div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="view-text big-text" (click)="changePass()">{{"change_password" | translate}}</div>
+        <div class="view-text big-text" *ngIf="userType=='customer'" (click)="myCars()">{{"my_cars" | translate}}</div>
+        <div class="view-text big-text" *ngIf="userType=='customer'">{{"booking_history" | translate}}</div>
+        <div class="view-text big-text" *ngIf="userType=='workshop'">{{"calender" | translate}}</div>
+        <div class="view-text big-text" (click)="garageInfo()" *ngIf="userType=='workshop'">{{"garage_details" | translate}}</div>
+        <div class="view-text big-text">{{"language" | translate}}</div>
+        <div class="view-text big-text" (click)="logout()">{{"logout" | translate}}</div>
+    </div>
+</div>
+<div class="menu-close" *ngIf="showMenu" full-screen (click)="closeMenu()"></div>
+<div class="select-upload list card animated fadeInUp" *ngIf="showUpload">
+    <div class="select-option">
+        <div (click)="openCamera()">{{"camera" | translate}}</div>
+        <div (click)="openGallery()">{{"gallary" | translate}}</div>
+    </div>
+    <div class="clear"></div>
+    <div class="select-option" (click)="closeUpload()">{{"close" | translate}}</div>
+</div>

@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-2 text-left (click)="goBack()"><i class="fas fa-chevron-left"></i></ion-col>
+            <ion-col col-10 text-left class="header-label">
+                {{"validat_account" | translate}}
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+<ion-content>
+    <div class="clear-mid"></div>
+    <div text-center>
+        <i class="fas fa-sms very-big-text-60"></i>
+        <div class="normal-text">{{'valid_mobile' | translate}} {{registerType}}</div>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4></ion-col>
+                <ion-col col-4>
+                    <input type="number" [(ngModel)]="mobileCode" maxlength="4" minlength="4" class="bigInput" />
+                </ion-col>
+                <ion-col col-4></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 text-center>
+                    <input type="button" class="btn-main" value="{{'valid' | translate}}" (click)="validatMobile()" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <div class="clear"></div>
+    <div class="very-big-text-60" text-center>{{"or" | translate}}</div>
+    <div class="clear"></div>
+    <div text-center>
+        <i class="fas fa-envelope very-big-text-60"></i>
+        <div class="normal-text">{{'valid_email' | translate}} {{registerType}}</div>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4></ion-col>
+                <ion-col col-4 text-center>
+                    <input type="number" [(ngModel)]="emailCode" maxlength="4" minlength="4" class="bigInput" />
+                </ion-col>
+                <ion-col col-4></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 text-center>
+                    <input type="button" class="btn-main" value="{{'valid' | translate}}" (click)="validatEmail()" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <!-- <div class="clear-big"></div>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12 text-center>
+                <input type="button" class="btn-main btn-full" value="{{'continue' | translate}}" />
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+</ion-content>

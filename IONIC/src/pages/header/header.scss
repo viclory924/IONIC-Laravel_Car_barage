@@ -1,0 +1,25 @@
+page-header {
+    .header {
+        width: 100%;
+        height: 100px;
+        padding: 5px;
+        padding-top: 45px;
+        background: url(../../assets/imgs/header.png);
+        background-size: 100% auto;
+        ion-col {
+            color: #dc713d;
+            font-size: 22px;
+        }
+        .header-label {
+            color: #e5e5e5;
+            text-shadow: #000000 0px 4px 2px;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 26px;
+        }
+    }
+    i {
+        font-size: 26px !important;
+    }
+}

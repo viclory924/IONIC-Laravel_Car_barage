@@ -1,0 +1,39 @@
+page-car {
+    .add-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        img {
+            width: 80px;
+            height: auto;
+        }
+    }
+    .show {
+        display: block;
+    }
+    .hide {
+        display: none;
+    }
+    table {
+        width: 100%;
+        tr {
+            line-height: 35px;
+            td {
+                width: 50%;
+                font-size: 14px;
+            }
+        }
+    }
+    .white-bg {
+        background: #ffffff;
+    }
+    .blue-bg {
+        background: #C3FAE8;
+    }
+    button {
+        font-size: 14px !important;
+        width: 100% !important;
+        line-height: 35px;
+        padding-top: 5px;
+    }
+}
